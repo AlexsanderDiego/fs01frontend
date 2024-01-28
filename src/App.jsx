@@ -2,22 +2,26 @@ import { Button, Col, Flex, Form, Input, Row } from "antd";
 import axios from "axios";
 
 function App() {
-  // const api = axios.create({ baseURL: "https://fs01backend.onrender.com/login" });
   async function login(dados) {
-    // const resposta = await fetch("https://fs01backend.onrender.com/login", {
-    //   method: "POST",
-    //   body: JSON.stringify(dados),
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // });
+    try {
+      const resposta = await axios.post("https://fs01backend.onrender.com/login", dados);
 
-    const nova = axios.post("https://fs01backend.onrender.com/login", dados);
-    console.log(dados);
-    console.log(nova);
+      // Manipule os dados da resposta conforme necessário
+      console.log("Resposta do servidor:", resposta.data);
+      alert(resposta.data);
+
+
+      // Adicione qualquer lógica adicional com base na resposta do servidor
+      // Por exemplo, redirecionar para outra página, armazenar token, etc.
+
+    } catch (error) {
+      // Se houver um erro na requisição, você pode lidar com ele aqui
+      console.error("Erro na requisição:", error);
+
+      // Exemplo: mostrar uma mensagem de erro para o usuário
+      alert("Erro ao fazer login. Por favor, tente novamente.");
+    }
   }
-
-
 
   return (
     <Flex
@@ -53,5 +57,3 @@ function App() {
 }
 
 export default App;
-
-
