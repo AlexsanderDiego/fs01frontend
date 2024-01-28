@@ -1,7 +1,14 @@
 import { Button, Col, Flex, Form, Input, Row } from "antd";
 import axios from "axios";
+import Test from "./Test";
+
+import { useState } from "react";
+
 
 function App() {
+
+  const [redirect, setRedirect] = useState(null);
+
   async function login(dados) {
     try {
       const resposta = await axios.post("https://fs01backend.onrender.com/login", dados);
@@ -9,6 +16,8 @@ function App() {
       // Manipule os dados da resposta conforme necessário
       console.log("Resposta do servidor:", resposta.data);
       alert(resposta.data);
+      
+      setRedirect("/outra-pagina")
 
 
       // Adicione qualquer lógica adicional com base na resposta do servidor
@@ -21,6 +30,10 @@ function App() {
       // Exemplo: mostrar uma mensagem de erro para o usuário
       alert("Erro ao fazer login. Por favor, tente novamente.");
     }
+  }
+
+  if (redirect) {
+    return <Test />;
   }
 
   return (
