@@ -11,11 +11,12 @@ function App() {
 
   async function login(dados) {
     try {
-      const resposta = await axios.post("https://fs01backend.onrender.com/auth/login", dados);
+      // const resposta = await axios.post("https://fs01backend.onrender.com/auth/login", dados);
+      const resposta = await axios.post("http://localhost:8080/auth/login", dados);
 
       // Manipule os dados da resposta conforme necessário
       console.log("Resposta do servidor:", resposta.data);
-      alert(resposta.data);
+      alert('Login Autorizado');
       
       setRedirect("/outra-pagina")
 
