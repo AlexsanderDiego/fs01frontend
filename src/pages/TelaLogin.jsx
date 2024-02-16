@@ -6,7 +6,7 @@ import Cadastro from "./TelaCadastro";
 import ListarUsuarios from "./TelaListarUsuarios.jsx";
 
 //import do css
-import "./TelaLogin.css";
+import "./telalogin.css";
 import FormItem from "antd/es/form/FormItem/index.js";
 
 function AuthLogin() {
