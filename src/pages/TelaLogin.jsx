@@ -8,10 +8,12 @@ import ListarUsuarios from "./TelaListarUsuarios.jsx";
 //import do css
 import "../css/TelaLogin.css";
 import FormItem from "antd/es/form/FormItem/index.js";
+import TelaRedefinirSenha from "./TelaRedefinirSenha.jsx";
 
 function AuthLogin() {
   const [redirect, setRedirect] = useState(null);
   const [telaCadastro, setTelaCadastro] = useState(null);
+  const [telaRedefinirSenha, setTelaRedefinirSenha] = useState(null);
 
   async function login(dados) {
     try {
@@ -34,6 +36,14 @@ function AuthLogin() {
   if (telaCadastro) {
     return <Cadastro />;
   }
+  if (telaRedefinirSenha) {
+    return <TelaRedefinirSenha />;
+  }
+
+  function RedefinirSenha() {
+    setTelaRedefinirSenha(true);
+  }
+
 
   function TelaCadastro() {
     setTelaCadastro(true);
@@ -87,7 +97,7 @@ function AuthLogin() {
           </Col>
           <Col>
             <FormItem>
-              <Button type="danger" onClick={TelaCadastro}>
+              <Button type="danger" onClick={RedefinirSenha}>
                 Esqueci a senha
               </Button>
             </FormItem>
