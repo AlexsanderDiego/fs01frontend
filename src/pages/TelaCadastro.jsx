@@ -42,83 +42,114 @@ function Cadastro() {
   }
 
   return (
+    <>
+      <style>
+        { `
+          .register-container {
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .register-form {
+          width: 300px;
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .register-form-title {
+          text-align: center;
+          font-size: 1.5rem;
+          margin-bottom: 20px;
+        }
+        
+        .register-button {
+          width: 100%;
+        }      
+        `}
+      </style>
 
-    <Flex className="register-container">
-      <Form className="register-form" form={form} onFinish={handleSubmit}>
-        <div className="register-form-title">Cadastro</div>
-        <Row>
-          <Col>
-            <Form.Item
-              name="nome"
-              label="Nome"
-              rules={[
-                { required: true, message: "Por favor, insira seu nome!" },
-              ]}
-            >
-              <Input />
-            </Form.Item>
-          </Col>
-
-          <Col>
-            <Form.Item
-              name="email"
-              label="Email"
-              rules={[
-                { required: true, message: "Por favor, insira seu email!" },
-                {
-                  type: "email",
-                  message: "Por favor, insira um email válido!",
-                },
-              ]}
-            >
-              <Input type="email" />
-            </Form.Item>
-          </Col>
-
-          <Col>
-            <Form.Item
-              name="usuario"
-              label="Usuario"
-              rules={[{ required: true }]}
-            >
-              <Input />
-            </Form.Item>
-          </Col>
-
-          <Col>
-            <Form.Item
-              name="senha"
-              label="Senha"
-              rules={[
-                { required: true, message: "Por favor, insira sua senha!" },
-              ]}
-            >
-              <Input.Password />
-            </Form.Item>
-          </Col>
-          <Col>
-            <Form.Item>
-              <Button
-                className="register-button"
-                type="primary"
-                htmlType="submit"
+      <Flex className="register-container">
+        <Form className="register-form" form={form} onFinish={handleSubmit}>
+          <div className="register-form-title">Cadastro</div>
+          <Row>
+            <Col>
+              <Form.Item
+                name="nome"
+                label="Nome"
+                rules={[
+                  { required: true, message: "Por favor, insira seu nome!" },
+                ]}
               >
-                Cadastrar
-              </Button>
-            </Form.Item>
-            <Form.Item>
-              <Button
-                className="register-button"
-                type="danger"
-                onClick={() => setRedirect(true)}
+                <Input />
+              </Form.Item>
+            </Col>
+
+            <Col>
+              <Form.Item
+                name="email"
+                label="Email"
+                rules={[
+                  { required: true, message: "Por favor, insira seu email!" },
+                  {
+                    type: "email",
+                    message: "Por favor, insira um email válido!",
+                  },
+                ]}
               >
-                Voltar
-              </Button>
-            </Form.Item>
-          </Col>
-        </Row>
-      </Form>
-    </Flex>
+                <Input type="email" />
+              </Form.Item>
+            </Col>
+
+            <Col>
+              <Form.Item
+                name="usuario"
+                label="Usuario"
+                rules={[{ required: true }]}
+              >
+                <Input />
+              </Form.Item>
+            </Col>
+
+            <Col>
+              <Form.Item
+                name="senha"
+                label="Senha"
+                rules={[
+                  { required: true, message: "Por favor, insira sua senha!" },
+                ]}
+              >
+                <Input.Password />
+              </Form.Item>
+            </Col>
+            <Col>
+              <Form.Item>
+                <Button
+                  className="register-button"
+                  type="primary"
+                  htmlType="submit"
+                >
+                  Cadastrar
+                </Button>
+              </Form.Item>
+              <Form.Item>
+                <Button
+                  className="register-button"
+                  type="danger"
+                  onClick={() => setRedirect(true)}
+                >
+                  Voltar
+                </Button>
+              </Form.Item>
+            </Col>
+          </Row>
+        </Form>
+      </Flex>
+    </>
   );
 }
 
