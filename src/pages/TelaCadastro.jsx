@@ -3,7 +3,7 @@ import axios from "axios";
 import { Form, Input, Button, Row, Col, Flex } from "antd";
 import AuthLogin from "./TelaLogin.jsx";
 
-import "../css/TelaCadastro.css";
+// import "../css/TelaCadastro.css";
 
 function Cadastro() {
   const [redirect, setRedirect] = useState(null);
