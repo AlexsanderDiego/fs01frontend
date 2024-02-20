@@ -17,11 +17,12 @@ function AuthLogin() {
 
   async function login(dados) {
     try {
-      // const resposta = await axios.post("https://fs01backend.onrender.com/auth/login", dados);
-      const resposta = await axios.post(
-        "http://localhost:8080/auth/login",
-        dados
-      );
+      const resposta = await axios.post("https://fs01backend.onrender.com/auth/login", dados);
+      // const resposta = await axios.post(
+      //   "http://localhost:8080/auth/login",
+      //   dados
+      // );
+
 
       setRedirect(true);
       alert("Login Autorizado");
