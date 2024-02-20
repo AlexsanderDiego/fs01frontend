@@ -12,7 +12,8 @@ const ListaUsuarios = () => {
     // Chamada à API para obter a lista de usuários
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/usuarios/");
+        // const response = await axios.get("http://localhost:8080/usuarios/");
+        const response = await axios.get("https://fs01backend.onrender.com/usuarios/");
         setUsuarios(response.data);
         console.log("Lista de usuários:", response.data);
       } catch (error) {
@@ -71,14 +72,16 @@ const ListaUsuarios = () => {
   const handleExcluir = (usuarioId) => {
     const excluirUsuario = async () => {
       try {
-        const resposta = await axios.delete(
-          `http://localhost:8080/apagarusuarios/${usuarioId}`
-        );
+        // const resposta = await axios.delete(
+        //   `http://localhost:8080/apagarusuarios/${usuarioId}`
+        // );
+        const resposta = await axios.delete(`https://fs01backend.onrender.com/apagarusuarios/${usuarioId}`);
         console.log("Resposta do servidor:", resposta.values);
         alert("Usuario excluido com sucesso");
 
         // Atualiza a lista de usuários após a exclusão
-        const response = await axios.get("http://localhost:8080/usuarios/");
+        // const response = await axios.get("http://localhost:8080/usuarios/");
+        const response = await axios.get("https://fs01backend.onrender.com/usuarios/");
         setUsuarios(response.data);
         console.log("Lista de usuários atualizada:", response.data);
       } catch (error) {
@@ -97,16 +100,17 @@ const ListaUsuarios = () => {
         const editaUsuario = async () => {
 
           try {
-            // const resposta = await axios.post("https://fs01backend.onrender.com/auth/login", dados);
-            const resposta = await axios.put(
-              `http://localhost:8080/usuarios/${editandoUsuario.id}`,
-              values
-            );
+            const resposta = await axios.put(`https://fs01backend.onrender.com/usuarios/${editandoUsuario.id}`, values);
+            // const resposta = await axios.put(
+            //   `http://localhost:8080/usuarios/${editandoUsuario.id}`,
+            //   values
+            // );
 
             alert("Usuario editado com sucesso");
 
             // Atualiza a lista de usuários após a edição
-            const response = await axios.get("http://localhost:8080/usuarios/");
+            // const response = await axios.get("http://localhost:8080/usuarios/");
+            const response = await axios.get("https://fs01backend.onrender.com/usuarios/");
             setUsuarios(response.data);
 
           } catch (error) {
@@ -114,6 +118,7 @@ const ListaUsuarios = () => {
 
             alert("Erro ao editar usuario. Por favor, tente novamente.");
           }
+
           setModalVisible(false);
           message.success("Usuário editado com sucesso!");
         };

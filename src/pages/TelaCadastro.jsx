@@ -11,11 +11,11 @@ function Cadastro() {
 
   async function handleSubmit(values) {
     try {
-      // const resposta = await axios.post("https://fs01backend.onrender.com/auth/login", dados);
-      const resposta = await axios.post(
-        "http://localhost:8080/cadastrarusuarios",
-        values
-      );
+      const resposta = await axios.post("https://fs01backend.onrender.com/auth/login", dados);
+      // const resposta = await axios.post(
+      //   "http://localhost:8080/cadastrarusuarios",
+      //   values
+      // );
 
       alert("Usuario Cadastrado");
       const confirma = confirm("Deseja cadastrar novo usuário?");
